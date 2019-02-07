@@ -1,0 +1,106 @@
+1. Install command-line tools for XCode
+
+$ xcode-select --install
+
+2. Install HomeBrew
+
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+3. Install Cask
+
+$ brew install cask
+
+4. (Optional) Grant extra permissions on the Homebrew directory
+
+$ sudo mkdir $(brew --prefix)/include
+$ sudo mkdir $(brew --prefix)/Frameworks
+$ sudo chown -R $(whoami) $(brew --prefix)/*
+
+5. Install HomeBrew applications
+
+$ brew install frotz
+$ brew install git
+$ brew install git-flow
+$ brew install hub
+$ brew install irssi
+$ brew install jq
+$ brew install miller
+$ brew install node
+$ brew install p7zip
+$ brew install python
+$ brew install reattach-to-user-namespace
+$ brew install telnet
+$ brew install tintin
+$ brew install tmux
+$ brew install todo-txt
+$ brew install vim --with-override-system-vi --with-python3
+
+6. Install Cask applications
+
+$ brew cask install atom
+$ brew cask install dropbox
+$ brew cask install docker
+$ brew cask install evernote
+$ brew cask install filezilla
+$ brew cask install firefox
+$ brew cask install google-chrome
+$ brew cask install iterm2
+$ brew cask install joinme
+$ brew cask install microsoft-teams
+$ brew cask install minecraft
+$ brew cask install onedrive
+$ brew cask install race-for-the-galaxy
+$ brew cask install skype-for-business
+$ brew cask install slack
+$ brew cask install sourcetree
+$ brew cask install spotify
+$ brew cask install steam
+$ brew cask install the-unarchiver
+$ brew cask install vassal
+$ brew cask install virtualbox
+$ brew cask install visual-studio-code
+
+7. Create some directories
+
+$ mkdir ~/Desktop/Screenshots
+$ mkdir -p ~/Documents/code/.PyEnvs
+$ mkdir ~/Documents/code/documentation
+$ mkdir ~/Documents/code/py
+$ mkdir ~/Documents/todotxt
+
+8. Set up some Git config settings
+
+$ git config --global user.name "Justin Peterson"
+$ git config --global user.email "justinmpeterson@gmail.com"
+
+9. Clone my dotfiles repo
+
+$ git clone https://github.com/justinmpeterson/documentation.git ~/Documents/code/documentation
+
+10. Download Vundle for plugins for vim
+
+$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+11. Do not create .DS_Store files on network shares
+
+$ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+12. Save screenshots somewhere else
+
+$ defaults write com.apple.screencapture location ~/Desktop/Screenshots; killall SystemUIServer
+
+13. Deploy some symbolic links
+
+$ ln -s $HOME/Documents/code/documentation/dotfiles/.bash_profile $HOME/.bash_profile
+$ ln -s $HOME/Documents/code/documentation/dotfiles/.todo.cfg $HOME/.todo.cfg
+$ ln -s $HOME/Documents/code/documentation/dotfiles/.tmux.conf $HOME/.tmux.conf
+$ ln -s $HOME/Documents/code/documentation/dotfiles/.vimrc $HOME/.vimrc
+
+14. (Mac OS High Sierra) Uncomment the Ciphers line from /etc/ssh/ssh_config in order to be able to connect to a Synology NAS via SSH.
+
+15. Install the Node.js Security Project globally so it can be run from the CLI
+
+$ npm install -g nsp
+
+
+/var/packages/Git/target/bin/git-shell
