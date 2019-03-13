@@ -20,10 +20,10 @@ au BufNewFile,BufRead *.py
 set backspace=indent,eol,start
 
 set encoding=utf-8
-set hlsearch        " highlight matches
-set nu              " display line numbers
+set hlsearch                " highlight matches
+set nu rnu
 set ruler
-set showmatch       " highlight matching [{()}]
+set showmatch               " highlight matching [{()}]
 
 syntax on
 

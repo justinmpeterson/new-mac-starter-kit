@@ -1,25 +1,34 @@
 #!/bin/bash
 
+AWAIT=(read -p "Press any key to continue: " -n 1 -s)
+
+cd ~
+
 echo "01. Install XCode command line utilities"
 xcode-select --install
+"${AWAIT[@]}" && echo
 
 echo "02. Install Homebrew"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+"${AWAIT[@]}" && echo
 
 echo "03. Install Cask"
 brew install cask
+"${AWAIT[@]}" && echo
 
 echo "04. Give Homebrew greater permissions"
 sudo mkdir $(brew --prefix)/include
 sudo mkdir $(brew --prefix)/Frameworks
 sudo chown -R $(whoami) $(brew --prefix)/*
+"${AWAIT[@]}" && echo
 
 echo "05. Install many, many Homebrew applications"
 brew install git git-flow hub
 brew install reattach-to-user-namespace tmux
-brew install jq miller p7zip telnet
+brew install bash coreutils jq miller moreutils p7zip telnet
 brew install python
 brew install vim --with-override-system-vi --with-python3
+"${AWAIT[@]}" && echo
 
 echo "06. Install many, many Cask applications"
 brew cask install docker
@@ -33,29 +42,52 @@ brew cask install spotify
 brew cask install steam
 brew cask install the-unarchiver
 brew cask install visual-studio-code
+"${AWAIT[@]}" && echo
 
 echo "07. Create necessary directories"
 mkdir ~/Desktop/Screenshots
 mkdir -p ~/Documents/code/documentation
+mkdir ~/Documents/code/new-mac-starter-kit
 mkdir ~/Documents/code/py
+"${AWAIT[@]}" && echo
 
 echo "08. Set up global Git config variables"
 git config --global user.name "Justin Peterson"
 git config --global user.email "justinmpeterson@gmail.com"
+"${AWAIT[@]}" && echo
 
 echo "09. Clone my dotfiles repo"
-git clone https://github.com/justinmpeterson/documentation.git ~/Documents/code/documentation
+git clone https://github.com/justinmpeterson/new-mac-starter-kit.git ~/Documents/code/new-mac-starter-kit
+cd ~/Documents/code/new-mac-starter-kit
+git checkout feature/home-use
+cd ~
+"${AWAIT[@]}" && echo
 
-echo "10. Tell MacOS not to create .DS_Store files on network shares"
+echo "10. Install vimwiki"
+git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
+"${AWAIT[@]}" && echo
+
+echo "11. Tell MacOS not to create .DS_Store files on network shares"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+"${AWAIT[@]}" && echo
 
-echo "11. Save screenshots somewhere else"
+echo "12. Save screenshots somewhere else"
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
+"${AWAIT[@]}" && echo
 
-echo "12. Symbolic links"
-ln -s $HOME/Documents/code/documentation/dotfiles/.bash_profile $HOME/.bash_profile
-ln -s $HOME/Documents/code/documentation/dotfiles/.tmux.conf $HOME/.tmux.conf
-ln -s $HOME/Documents/code/documentation/dotfiles/.vimrc $HOME/.vimrc
+echo "13. Symbolic links"
+ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
+ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
+ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
+"${AWAIT[@]}" && echo
 
-echo "And finally, reset the Finder so my screenshot command takes effect immediately"
+echo "14. Reset the Finder so my screenshot command takes effect immediately"
 killall SystemUIServer
+"${AWAIT[@]}" && echo
+
+echo "15. Make Homebrew Bash my default shell"
+echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/bash
+"${AWAIT[@]}" && echo
+
+echo "Done!"
