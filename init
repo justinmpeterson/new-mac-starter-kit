@@ -45,8 +45,8 @@ brew cask install visual-studio-code
 
 echo "06. Create necessary directories"
 mkdir ~/Desktop/Screenshots
+mkdir ~/Documents/.logs
 mkdir -p ~/Documents/code/documentation
-mkdir ~/Documents/code/new-mac-starter-kit
 mkdir ~/Documents/code/py
 "${AWAIT[@]}" && echo
 
