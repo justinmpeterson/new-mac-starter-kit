@@ -32,7 +32,7 @@ brew install vim --with-override-system-vi --with-python3
 
 echo "06. Install many, many Cask applications"
 brew cask install docker
-brew cask install filezilla
+# brew cask install filezilla
 brew cask install google-chrome
 brew cask install iterm2
 brew cask install minecraft
@@ -56,36 +56,29 @@ git config --global user.name "Justin Peterson"
 git config --global user.email "justinmpeterson@gmail.com"
 "${AWAIT[@]}" && echo
 
-echo "09. Clone my dotfiles repo"
-git clone https://github.com/justinmpeterson/new-mac-starter-kit.git ~/Documents/code/new-mac-starter-kit
-cd ~/Documents/code/new-mac-starter-kit
-git checkout feature/home-use
-cd ~
-"${AWAIT[@]}" && echo
-
-echo "10. Install vimwiki"
+echo "09. Install vimwiki"
 git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
 "${AWAIT[@]}" && echo
 
-echo "11. Tell MacOS not to create .DS_Store files on network shares"
+echo "10. Tell MacOS not to create .DS_Store files on network shares"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 "${AWAIT[@]}" && echo
 
-echo "12. Save screenshots somewhere else"
+echo "11. Save screenshots somewhere else"
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
 "${AWAIT[@]}" && echo
 
-echo "13. Symbolic links"
+echo "12. Symbolic links"
 ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
 ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
 "${AWAIT[@]}" && echo
 
-echo "14. Reset the Finder so my screenshot command takes effect immediately"
+echo "13. Reset the Finder so my screenshot command takes effect immediately"
 killall SystemUIServer
 "${AWAIT[@]}" && echo
 
-echo "15. Make Homebrew Bash my default shell"
+echo "14. Make Homebrew Bash my default shell"
 echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
 "${AWAIT[@]}" && echo
