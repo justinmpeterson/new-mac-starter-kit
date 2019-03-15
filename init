@@ -25,20 +25,19 @@ sudo chown -R $(whoami) $(brew --prefix)/*
 echo "04. Install many, many Homebrew applications"
 brew install git git-flow hub
 brew install reattach-to-user-namespace tmux
-brew install bash coreutils jq miller moreutils p7zip telnet
+brew install bash coreutils jq miller moreutils p7zip telnet todo-txt
 brew install irssi python vim
 "${AWAIT[@]}" && echo
 
 echo "05. Install many, many Cask applications"
 brew cask install docker
-# brew cask install filezilla
 brew cask install google-chrome
 brew cask install iterm2
-brew cask install minecraft
-brew cask install race-for-the-galaxy
+brew cask install microsoft-teams
+brew cask install onedrive
+brew cask install skype-for-business
 brew cask install slack
-brew cask install spotify
-brew cask install steam
+brew cask install sourcetree
 brew cask install the-unarchiver
 brew cask install visual-studio-code
 "${AWAIT[@]}" && echo
@@ -46,8 +45,7 @@ brew cask install visual-studio-code
 echo "06. Create necessary directories"
 mkdir ~/Desktop/Screenshots
 mkdir ~/Documents/.logs
-mkdir -p ~/Documents/code/documentation
-mkdir ~/Documents/code/py
+mkdir -p ~/Documents/code/py
 "${AWAIT[@]}" && echo
 
 echo "07. Set up global Git config variables"
@@ -68,9 +66,9 @@ defaults write com.apple.screencapture location ~/Desktop/Screenshots
 "${AWAIT[@]}" && echo
 
 echo "11. Symbolic links"
-ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
-ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
-ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
+ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
+ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
 "${AWAIT[@]}" && echo
 
 echo "12. Reset the Finder so my screenshot command takes effect immediately"
