@@ -4,6 +4,10 @@
 # Creating a subdirectory named after every file in a directory, then moving each file to its subdir
 # for f in *.txt; do mkdir "${f%.*}" && mv "$f" "${f%.*}"; done
 
+# TODO.TXT stuff
+export TODOTXT_DEFAULT_ACTION=ls
+alias t='todo.sh -d ~/.todo.cfg -t'
+
 export PATH=/usr/local/bin:/usr/local/sbin:/Applications/Utilities/instantclient_12_2:$PATH
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias brb='caffeinate -u -t 1000'
