@@ -6,6 +6,9 @@
 6. Logout.
 7. On the local machine, navigate to code root directory.
 8. $ git clone ssh://(user)@(server)/(path/to/git-repositories)/(new-remote-repo)
-9. $ git flow init
-10. Set it up in Sourcetree so you aren't just using the command line.
-11. Start coding!
+9. CD to the new directory.
+10. $ git flow init
+11. $ git checkout master; git push -u origin master
+12. $ git checkout develop; git push -u origin develop
+13. Set it up in Sourcetree so you aren't just using the command line.
+14. Start coding!
