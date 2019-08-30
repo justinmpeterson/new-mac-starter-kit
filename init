@@ -84,4 +84,13 @@ echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
 "${AWAIT[@]}" && echo
 
+echo "14. Install Powerline fonts"
+cd $HOME/Documents/code
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+"${AWAIT[@]}" && echo
+
 echo "Done!"
