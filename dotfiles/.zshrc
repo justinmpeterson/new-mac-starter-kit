@@ -61,6 +61,9 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  aws
+  brew
+  docker
   git
 )
 
@@ -104,5 +107,7 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
 bindkey -v
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs root_indicator)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv background_jobs history time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicator)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_COLOR_SCHEME='light'
+POWERLEVEL9K_DISABLE_RPROMPT=true
