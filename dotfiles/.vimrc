@@ -30,4 +30,18 @@ syntax on
 set foldmethod=indent
 set foldlevel=99
 
-let g:vimwiki_list =[{'path': '/Users/jpeterson/OneDrive\ -\ STATS\ LLC/Documents/vimwiki/wiki', 'path_html': '/Users/jpeterson/OneDrive\ -\ STATS\ LLC/Documents/vimwiki/html'}]
+let vimwiki_default = {}
+let vimwiki_default.path = '/Users/jpeterson/OneDrive\ -\ STATS\ LLC/Documents/vimwiki/mdwiki'
+let vimwiki_default.path_html = '/Users/jpeterson/OneDrive\ -\ STATS\ LLC/Documents/vimwiki/mdhtml'
+let vimwiki_default.syntax = 'markdown'
+let vimwiki_default.ext = '.md'
+let vimwiki_default.name = 'MarkdownWiki'
+
+let vimwiki_ancient = {}
+let vimwiki_ancient.path = '/Users/jpeterson/OneDrive\ -\ STATS\ LLC/Documents/vimwiki/wiki'
+let vimwiki_ancient.path_html = '/Users/jpeterson/OneDrive\ -\ STATS\ LLC/Documents/vimwiki/html'
+let vimwiki_ancient.syntax = 'default'
+let vimwiki_ancient.ext = '.wiki'
+let vimwiki_ancient.name = 'AncientWiki'
+
+let g:vimwiki_list =[vimwiki_default, vimwiki_ancient]

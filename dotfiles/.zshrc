@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -104,8 +104,11 @@ alias t='todo.sh -d ~/.todo.cfg -t'
 
 autoload -U zmv
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+alias cded='cd ~/STATS\ LLC/Engineering\ Management\ -\ Eng\ Dashboard'
+alias cdpopbi='cded; cd Source/PythonOut-PowerBiIn'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
+alias team="ssh -i ~/.ssh/tilde.team justin@tilde.team"
 bindkey -v
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicator)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
