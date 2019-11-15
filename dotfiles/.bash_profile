@@ -11,7 +11,10 @@ alias t='todo.sh -d ~/.todo.cfg -t'
 export PATH=/usr/local/bin:/usr/local/sbin:/Applications/Utilities/instantclient_12_2:$PATH
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias brb='caffeinate -u -t 1000'
+alias cded='cd ~/STATS\ LLC/Engineering\ Management\ -\ Eng\ Dashboard'
+alias cdpopbi='cded; cd Source/PythonOut-PowerBiIn'
 alias ll='ls -FGlAhp'
+alias team="ssh -i ~/.ssh/tilde.team justin@tilde.team"
 cd() { builtin cd "$@"; ll; }
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/Documents/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 export PS1="\![\D{%a %Y%m%d}|\t][\W]$ "
