@@ -20,14 +20,21 @@ au BufNewFile,BufRead *.py
 set backspace=indent,eol,start
 
 set encoding=utf-8
-set hlsearch                " highlight matches
-set nu rnu
+set hlsearch        " highlight matches
+set nu rnu          " display line numbers
 set ruler
-set showmatch               " highlight matching [{()}]
+set showmatch       " highlight matching [{()}]
 
 syntax on
 
 set foldmethod=indent
 set foldlevel=99
 
-let g:vimwiki_list = [{'path': '/Users/justin/Documents/vimwiki-at-home/wiki', 'path_html': '/Users/justin/Documents/vimwiki-at-home/html'}]
+let vimwiki_md = {}
+let vimwiki_md.auto_diary_index = 1
+let vimwiki_md.auto_tags = 1
+let vimwiki_md.ext = '.md'
+let vimwiki_md.path = '~/vimwiki/mdwiki'
+let vimwiki_md.syntax = 'markdown'
+
+let g:vimwiki_list = [vimwiki_md]
