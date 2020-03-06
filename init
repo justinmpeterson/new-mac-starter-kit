@@ -81,4 +81,6 @@ echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
 "${AWAIT[@]}" && echo
 
-echo "Done!"
+echo "All the automatic work is now done! Manual steps remaining include:"
+echo "A. Install VirtualBox"
+echo "B. Install Hashicorp's Vagrant"
