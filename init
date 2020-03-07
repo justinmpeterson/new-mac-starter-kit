@@ -93,4 +93,6 @@ cd ..
 rm -rf fonts
 "${AWAIT[@]}" && echo
 
-echo "Done!"
+echo "Automated steps are done! Remaining manual steps may include:"
+echo "A. Download and install Oracle's VirtualBox"
+echo "B. Download and install Hashicorp's Vagrant"
