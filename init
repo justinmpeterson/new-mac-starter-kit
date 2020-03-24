@@ -43,45 +43,67 @@ brew cask install the-unarchiver
 brew cask install visual-studio-code
 "${AWAIT[@]}" && echo
 
-echo "06. Create necessary directories"
+echo "06. Install Powerline fonts"
+cd $HOME/Documents/code
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+"${AWAIT[@]}" && echo
+
+echo "07. Install oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+"${AWAIT[@]}" && echo
+
+echo "08. Install PowerLevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+"${AWAIT[@]}" && echo
+
+echo "08. Create necessary directories"
 mkdir ~/Desktop/Screenshots
 mkdir ~/Documents/.logs
 mkdir -p ~/Documents/code/py
 "${AWAIT[@]}" && echo
 
-echo "07. Set up global Git config variables"
+echo "09. Set up global Git config variables"
 git config --global user.name "Justin Peterson"
 git config --global user.email "justin.peterson@statsperform.com"
 "${AWAIT[@]}" && echo
 
-echo "08. Install vimwiki"
+echo "10. Install vimwiki"
 git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
 "${AWAIT[@]}" && echo
 
-echo "09. Tell MacOS not to create .DS_Store files on network shares"
+echo "11. Tell MacOS not to create .DS_Store files on network shares"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 "${AWAIT[@]}" && echo
 
-echo "10. Save screenshots somewhere else"
+echo "12. Save screenshots somewhere else"
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
 "${AWAIT[@]}" && echo
 
-echo "11. Symbolic links"
+echo "13. Symbolic links"
 ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
 ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
 ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.zshrc $HOME/.zshrc
 "${AWAIT[@]}" && echo
 
-echo "12. Reset the Finder so my screenshot command takes effect immediately"
+echo "14. Reset the Finder so my screenshot command takes effect immediately"
 killall SystemUIServer
 "${AWAIT[@]}" && echo
 
-echo "13. Make Homebrew Bash my default shell"
+echo "15. Make ZSH my default shell"
+chsh -s /bin/zsh
+"${AWAIT[@]}" && echo
+
+echo "16. Add Homebrew Bash to the list of available shells"
 echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/bash
 "${AWAIT[@]}" && echo
 
 echo "All the automatic work is now done! Manual steps remaining include:"
 echo "A. Install VirtualBox"
 echo "B. Install Hashicorp's Vagrant"
+echo "C. Install the Oracle Instant Client"
+echo "D. Install the Forticlient VPN client"
