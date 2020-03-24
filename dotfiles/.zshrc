@@ -114,3 +114,4 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicato
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_DISABLE_RPROMPT=true
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"

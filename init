@@ -26,7 +26,7 @@ echo "04. Install many, many Homebrew applications"
 brew install git git-flow hub
 brew install reattach-to-user-namespace tmux
 brew install bash coreutils jq miller moreutils p7zip rtv speedtest-cli telnet todo-txt
-brew install aws-sam-cli awscli irssi python vim
+brew install aws-sam-cli awscli irssi mysql-client python vim
 "${AWAIT[@]}" && echo
 
 echo "05. Install many, many Cask applications"
@@ -70,6 +70,7 @@ echo "11. Symbolic links"
 ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
 ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.zshrc $HOME/.zshrc
 "${AWAIT[@]}" && echo
 
 echo "12. Reset the Finder so my screenshot command takes effect immediately"
