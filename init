@@ -2,13 +2,16 @@
 
 # Must run this command before this repo can even be cloned on a brand-new Mac:
 # xcode-select --install
+# 
+# Clone the repo into this directory:
+# mkdir -p ~/Documents/DATA/.setup
 
 AWAIT=(read -p "Press any key to continue: " -n 1 -s)
 
 cd ~
 
 echo "01. Install Homebrew"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 "${AWAIT[@]}" && echo
 
 echo "02. Update Homebrew and install Cask"
@@ -16,20 +19,26 @@ brew update
 brew install cask
 "${AWAIT[@]}" && echo
 
-echo "03. Give Homebrew greater permissions"
+echo "03. Create necessary directories"
+mkdir -p ~/Documents/DATA/Screenshots
+mkdir -p ~/Documents/DATA/.logs
+mkdir ~/Documents/DATA/workspace
+"${AWAIT[@]}" && echo
+
+echo "04. Give Homebrew greater permissions"
 sudo mkdir $(brew --prefix)/include
 sudo mkdir $(brew --prefix)/Frameworks
 sudo chown -R $(whoami) $(brew --prefix)/*
 "${AWAIT[@]}" && echo
 
-echo "04. Install many, many Homebrew applications"
+echo "05. Install many, many Homebrew applications"
 brew install git git-flow hub
 brew install reattach-to-user-namespace tmux
 brew install bash coreutils jq miller moreutils p7zip telnet
 brew install irssi python vim
 "${AWAIT[@]}" && echo
 
-echo "05. Install many, many Cask applications"
+echo "06. Install many, many Cask applications"
 brew cask install docker
 # brew cask install filezilla
 brew cask install google-chrome
@@ -45,52 +54,57 @@ brew cask install the-unarchiver
 brew cask install visual-studio-code
 "${AWAIT[@]}" && echo
 
-echo "06. Create necessary directories"
-mkdir ~/Desktop/Screenshots
-mkdir ~/Documents/.logs
-mkdir -p ~/Documents/code/documentation
-mkdir ~/Documents/code/py
-"${AWAIT[@]}" && echo
-
-echo "07. Set up global Git config variables"
-git config --global user.name "Justin Peterson"
-git config --global user.email "justinmpeterson@gmail.com"
-"${AWAIT[@]}" && echo
-
-echo "08. Install vimwiki"
-git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
-"${AWAIT[@]}" && echo
-
-echo "09. Tell MacOS not to create .DS_Store files on network shares"
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-"${AWAIT[@]}" && echo
-
-echo "10. Save screenshots somewhere else"
-defaults write com.apple.screencapture location ~/Desktop/Screenshots
-"${AWAIT[@]}" && echo
-
-echo "11. Symbolic links"
-ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
-ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
-ln -s $HOME/Documents/code/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
-"${AWAIT[@]}" && echo
-
-echo "12. Reset the Finder so my screenshot command takes effect immediately"
-killall SystemUIServer
-"${AWAIT[@]}" && echo
-
-echo "13. Make Homebrew Bash my default shell"
-echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
-chsh -s /usr/local/bin/bash
-"${AWAIT[@]}" && echo
-
-echo "14. Install Powerline fonts"
-cd $HOME/Documents/code
+echo "07. Install Powerline fonts"
+cd $HOME/Documents/DATA/workspace
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
+"${AWAIT[@]}" && echo
+
+echo "08. Set up global Git config variables"
+git config --global user.name "Justin Peterson"
+git config --global user.email "justinmpeterson@gmail.com"
+"${AWAIT[@]}" && echo
+
+echo "09. Install vimwiki"
+git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
+"${AWAIT[@]}" && echo
+
+echo "10. Tell MacOS not to create .DS_Store files on network shares"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+"${AWAIT[@]}" && echo
+
+echo "11. Save screenshots somewhere else"
+defaults write com.apple.screencapture location ~/Documents/DATA/Screenshots
+"${AWAIT[@]}" && echo
+
+echo "12. Install oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+"${AWAIT[@]}" && echo
+
+echo "13. Install PowerLevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+"${AWAIT[@]}" && echo
+
+echo "14. Symbolic links"
+ln -s $HOME/Documents/DATA/.setup/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
+ln -s $HOME/Documents/DATA/.setup/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
+ln -s $HOME/Documents/DATA/.setup/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/Documents/DATA/.setup/new-mac-starter-kit/dotfiles/.zshrc $HOME/.zshrc
+"${AWAIT[@]}" && echo
+
+echo "15. Reset the Finder so my screenshot command takes effect immediately"
+killall SystemUIServer
+"${AWAIT[@]}" && echo
+
+echo "16. Add Homebrew Bash to list of available shells"
+echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
+"${AWAIT[@]}" && echo
+
+echo "17. Set ZSH as my default shell"
+chsh -s /bin/zsh
 "${AWAIT[@]}" && echo
 
 echo "Automated steps are done! Remaining manual steps may include:"
