@@ -98,20 +98,33 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+bindkey -v
+
 # TODO.TXT stuff
 export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d ~/.todo.cfg -t'
 
 autoload -U zmv
+
+alias awsai='source assume --force --user justin.peterson --profile autoi --mfa -'
+alias awsaius='awsai --user-session'
+alias awswsprd='awsai --account 291169314679 --role WordsmithDeveloper'
+alias awswsprda='awsai --account 291169314679 --role crossAccountAdminAccess'
+alias awswsstg='awsai --account 367326150803 --role xaWSStageDev'
+alias awswsstga='awsai --account 367326150803 --role crossAccountAdminAccess'
+
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias cded='cd ~/STATS\ LLC/Engineering\ Management\ -\ Eng\ Dashboard'
 alias cdpopbi='cded; cd Source/PythonOut-PowerBiIn'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
+alias sqldash="mysql -h engineering-metrics.cgv4d6ctfnjm.us-east-1.rds.amazonaws.com -P 3306 -u jpeterson -p"
 alias team="ssh -i ~/.ssh/tilde.team justin@tilde.team"
-bindkey -v
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicator)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_DISABLE_RPROMPT=true
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+eval "$(rbenv init -)"
