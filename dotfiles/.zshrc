@@ -114,14 +114,15 @@ alias awswsprd='awsai --account 291169314679 --role WordsmithDeveloper'
 alias awswsprda='awsai --account 291169314679 --role crossAccountAdminAccess'
 alias awswsstg='awsai --account 367326150803 --role xaWSStageDev'
 alias awswsstga='awsai --account 367326150803 --role crossAccountAdminAccess'
+alias awsmsprd='awsai --account 966955918297 --role crossAccountAdminAccess'
+alias get-jenkins-ips="aws ec2 describe-instances --no-paginate --region us-east-2 --output table --query 'Reservations[*].Instances[*].{Name:Tags[?Key==\`Name\`]|[0].Value,PrivateIP:PrivateIpAddress}'"
 
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias cded='cd ~/STATS\ LLC/Engineering\ Management\ -\ Eng\ Dashboard'
 alias cdpopbi='cded; cd Source/PythonOut-PowerBiIn'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
-alias sqldash="mysql -h engineering-metrics.cgv4d6ctfnjm.us-east-1.rds.amazonaws.com -P 3306 -u jpeterson -p"
-alias team="ssh -i ~/.ssh/tilde.team justin@tilde.team"
+alias sqldash="mysql -h engineering-metrics.cgv4d6ctfnjm.us-east-1.rds.amazonaws.com -P 3306 -u jpeterson -p engineeringmetrics"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicator)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
