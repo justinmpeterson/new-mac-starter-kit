@@ -2,6 +2,8 @@ set nocompatible              " required
 filetype off                  " required
 filetype plugin indent on    " required
 
+syntax on
+
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -17,6 +19,10 @@ au BufNewFile,BufRead *.py
   \ set autoindent |
   \ set fileformat=unix
 
+if has("autocmd")
+  autocmd FileType make   set noexpandtab
+endif
+
 set backspace=indent,eol,start
 
 set encoding=utf-8
@@ -24,8 +30,6 @@ set hlsearch        " highlight matches
 set nu rnu          " display line numbers
 set ruler
 set showmatch       " highlight matching [{()}]
-
-syntax on
 
 set foldmethod=indent
 set foldlevel=99
