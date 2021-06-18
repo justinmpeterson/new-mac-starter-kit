@@ -1,0 +1,67 @@
+endpoint: "https://statsinc.atlassian.net/"
+login: "justin.peterson@statsperform.com"
+password-source: "keyring"
+custom-commands:
+  - name: "support-key"
+    hidden: true
+    script: |
+      {{jira}} list --template="keys-only" --limit=1 --query="sprint in openSprints() and project = dvoc and summary ~ Support"
+  - name: "log"
+    help: "Log work against an issue"
+    options:
+      - name: "issue"
+        short: "i"
+        required: true
+      - name: "time"
+        short: "t"
+        required: true
+      - name: "date"
+        short: "d"
+        default: $(date +%Y-%m-%d)
+      - name: "comment"
+        short: "c"
+        default: "x"
+    script: |
+      {{jira}} worklog add --noedit --started="{{options.date}}T09:00:00.000-0000" --time-spent="{{options.time}}" --comment="{{options.comment}}" {{options.issue}}
+  - name: "meet"
+    help: "Log work against the MEETINGS issue"
+    options:
+      - name: "time"
+        short: "t"
+        required: true
+      - name: "date"
+        short: "d"
+        default: $(date +%Y-%m-%d)
+      - name: "comment"
+        short: "c"
+        default: "x"
+    script: |
+      {{jira}} worklog add --noedit --started="{{options.date}}T09:00:00.000-0000" --time-spent="{{options.time}}" --comment="{{options.comment}}" DVOC-540
+  - name: "keep"
+    help: "Log work against the TIMEKEEPING issue"
+    options:
+      - name: "time"
+        short: "t"
+        required: true
+      - name: "date"
+        short: "d"
+        default: $(date +%Y-%m-%d)
+      - name: "comment"
+        short: "c"
+        default: "x"
+    script: |
+      {{jira}} worklog add --noedit --started="{{options.date}}T09:00:00.000-0000" --time-spent="{{options.time}}" --comment="{{options.comment}}" DVOC-539
+  - name: "support"
+    help: "Log work against the current sprint's Support issue"
+    options:
+      - name: "time"
+        short: "t"
+        required: true
+      - name: "date"
+        short: "d"
+        default: $(date +%Y-%m-%d)
+      - name: "comment"
+        short: "c"
+        default: "x"
+    script: |
+      {{jira}} worklog add --noedit --started="{{options.date}}T09:00:00.000-0000" --time-spent="{{options.time}}" --comment="{{options.comment}}" $(jira support-key)
