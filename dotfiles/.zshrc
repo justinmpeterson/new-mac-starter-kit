@@ -116,7 +116,8 @@ alias awswsprd='awsai --account 291169314679 --role WordsmithDeveloper'
 alias awswsprda='awsai --account 291169314679 --role crossAccountAdminAccess'
 alias awswsstg='awsai --account 367326150803 --role xaWSStageDev'
 alias awswsstga='awsai --account 367326150803 --role crossAccountAdminAccess'
-alias awsmsprd='awsai --account 966955918297 --role crossAccountAdminAccess'
+alias awsmsprd='awsai --account 966955918297 --role xaMSSysAd'
+alias awsmsstg='awsai --account 361390504376 --role xaMSSysAd'
 alias get-jenkins-ips="aws ec2 describe-instances --no-paginate --region us-east-2 --output table --query 'Reservations[*].Instances[*].{Name:Tags[?Key==\`Name\`]|[0].Value,PrivateIP:PrivateIpAddress}'"
 alias freshenv="source ~/Documents/workspace/mlb-lifetime/.env && echo mlb-lifetime env vars have been loaded."
 alias mlb20="freshenv && docker run -it --rm -e MSF_API_KEY -e MSF_PASSWORD -e NEOCITIES_API_KEY ${LIFETIME_IMG} scripts/grab_html_output.sh"
