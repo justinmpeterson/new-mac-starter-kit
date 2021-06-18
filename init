@@ -27,7 +27,7 @@ brew install git git-flow hub
 brew install reattach-to-user-namespace tmux
 brew install bash coreutils jq miller moreutils p7zip rtv speedtest-cli telnet todo-txt
 brew install aws-sam-cli awscli irssi mysql-client python terraform vim
-brew install gopass gnupg pinentry-mac
+brew install go-jira gopass gnupg pinentry-mac
 "${AWAIT[@]}" && echo
 
 echo "05. Install many, many Cask applications"

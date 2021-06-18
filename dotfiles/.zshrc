@@ -99,6 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export GPG_TTY=$(tty)
+export ORACLE_HOME=/Applications/Utilities/instantclient_19_8/
 
 bindkey -v
 
@@ -107,8 +108,6 @@ export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d ~/.todo.cfg -t'
 
 autoload -U zmv
-
-LIFETIME_IMG="docker.pkg.github.com/justinmpeterson/mlb-lifetime/fantasy-lifetime-mlb:2020-regular"
 
 alias awsai='source assume --force --user justin.peterson --profile autoi --mfa -'
 alias awsaius='awsai --user-session'
@@ -119,12 +118,8 @@ alias awswsstga='awsai --account 367326150803 --role crossAccountAdminAccess'
 alias awsmsprd='awsai --account 966955918297 --role xaMSSysAd'
 alias awsmsstg='awsai --account 361390504376 --role xaMSSysAd'
 alias get-jenkins-ips="aws ec2 describe-instances --no-paginate --region us-east-2 --output table --query 'Reservations[*].Instances[*].{Name:Tags[?Key==\`Name\`]|[0].Value,PrivateIP:PrivateIpAddress}'"
-alias freshenv="source ~/Documents/workspace/mlb-lifetime/.env && echo mlb-lifetime env vars have been loaded."
-alias mlb20="freshenv && docker run -it --rm -e MSF_API_KEY -e MSF_PASSWORD -e NEOCITIES_API_KEY ${LIFETIME_IMG} scripts/grab_html_output.sh"
 
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
-alias cded='cd ~/STATS\ LLC/Engineering\ Management\ -\ Eng\ Dashboard'
-alias cdpopbi='cded; cd Source/PythonOut-PowerBiIn'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
 alias sqldash="mysql -h engineering-metrics.cgv4d6ctfnjm.us-east-1.rds.amazonaws.com -P 3306 -u jpeterson -p engineeringmetrics"
@@ -134,5 +129,3 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_DISABLE_RPROMPT=true
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
-eval "$(rbenv init -)"
