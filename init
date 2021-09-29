@@ -71,6 +71,7 @@ mkdir -p ~/Documents/code/py
 echo "09. Set up global Git config variables"
 git config --global user.name "Justin Peterson"
 git config --global user.email "justin.peterson@statsperform.com"
+git config --global init.defaultBranch master
 "${AWAIT[@]}" && echo
 
 echo "10. Install vimwiki"

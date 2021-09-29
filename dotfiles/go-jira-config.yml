@@ -23,6 +23,20 @@ custom-commands:
         default: "x"
     script: |
       {{jira}} worklog add --noedit --started="{{options.date}}T09:00:00.000-0000" --time-spent="{{options.time}}" --comment="{{options.comment}}" {{options.issue}}
+  - name: "rto"
+    help: "Log work against the HOLIDAY issue"
+    options:
+      - name: "time"
+        short: "t"
+        required: true
+      - name: "date"
+        short: "d"
+        default: $(date +%Y-%m-%d)
+      - name: "comment"
+        short: "c"
+        default: "x"
+    script: |
+      {{jira}} worklog add --noedit --started="{{options.date}}T09:00:00.000-0000" --time-spent="{{options.time}}" --comment="{{options.comment}}" DVOC-541
   - name: "meet"
     help: "Log work against the MEETINGS issue"
     options:
