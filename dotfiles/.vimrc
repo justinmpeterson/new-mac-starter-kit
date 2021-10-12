@@ -35,6 +35,6 @@ let vimwiki_default.path = "$OD/Documents/vimwiki/md"
 let vimwiki_default.path_html = "$OD/Documents/vimwiki/html"
 let vimwiki_default.syntax = "markdown"
 let vimwiki_default.ext = ".md"
-let vimwiki_default.name = "MarkdownWiki"
+let vimwiki_default.name = "Extron Wiki"
 
 let g:vimwiki_list =[vimwiki_default]

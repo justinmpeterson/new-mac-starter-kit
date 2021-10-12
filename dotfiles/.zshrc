@@ -100,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 export OD="/Users/jpeterson/OneDrive - Extron Electronics"
 export GPG_TTY=$(tty)
-export WTF_JIRA_API_KEY="j49Eu2AppztsRUK8i5uM3C30"
+export WTF_JIRA_API_KEY=""
 
 bindkey -v
 
