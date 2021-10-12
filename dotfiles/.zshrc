@@ -65,7 +65,6 @@ plugins=(
   brew
   docker
   git
-  poetry
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -99,8 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export OD="/Users/jpeterson/OneDrive - Extron Electronics"
 export GPG_TTY=$(tty)
-export ORACLE_HOME=/Applications/Utilities/instantclient_19_8/
 export WTF_JIRA_API_KEY="j49Eu2AppztsRUK8i5uM3C30"
 
 bindkey -v
@@ -111,26 +110,15 @@ alias t='todo.sh -d ~/.todo.cfg -t'
 
 autoload -U zmv
 
-alias awsai='source assume --force --user justin.peterson --profile autoi --mfa -'
-alias awsaius='awsai --user-session'
-alias awswsprd='awsai --account 291169314679 --role WordsmithDeveloper'
-alias awswsprda='awsai --account 291169314679 --role crossAccountAdminAccess'
-alias awswsstg='awsai --account 367326150803 --role xaWSStageDev'
-alias awswsstga='awsai --account 367326150803 --role crossAccountAdminAccess'
-alias awsmsprd='awsai --account 966955918297 --role xaMSSysAd'
-alias awsmsstg='awsai --account 361390504376 --role xaMSSysAd'
-alias get-jenkins-ips="aws ec2 describe-instances --no-paginate --region us-east-2 --output table --query 'Reservations[*].Instances[*].{Name:Tags[?Key==\`Name\`]|[0].Value,PrivateIP:PrivateIpAddress}'"
-alias testspeed='date >> $HOME/Desktop/speed-tests.txt && speedtest-cli --simple >> $HOME/Desktop/speed-tests.txt'
 alias bfg='java -jar /usr/local/bin/bfg-1.14.0.jar'
 alias bfg2='git reflog expire --expire=now --all && git gc --prune=now --aggressive && git push'
 
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
-alias sqldash="mysql -h engineering-metrics.cgv4d6ctfnjm.us-east-1.rds.amazonaws.com -P 3306 -u jpeterson -p engineeringmetrics"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicator)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_DISABLE_RPROMPT=true
-export PATH="/usr/local/opt/mysql-client/bin:/Users/justinpeterson/Library/Python/3.9/bin:$PATH"
+export PATH="/Users/justinpeterson/Library/Python/3.9/bin:$PATH"

@@ -7,46 +7,46 @@ AWAIT=(read -p "Press any key to continue: " -n 1 -s)
 
 cd ~
 
-echo "01. Install Homebrew"
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+echo "01. Create necessary directories"
+mkdir ~/Desktop/Screenshots
+mkdir -p ~/Documents/workspace
 "${AWAIT[@]}" && echo
 
-echo "02. Update Homebrew and install Cask"
-brew update
-brew install cask
+echo "02. Install Homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 "${AWAIT[@]}" && echo
 
 echo "03. Give Homebrew greater permissions"
-sudo mkdir $(brew --prefix)/include
-sudo mkdir $(brew --prefix)/Frameworks
+# sudo mkdir $(brew --prefix)/include
+# sudo mkdir $(brew --prefix)/Frameworks
 sudo chown -R $(whoami) $(brew --prefix)/*
 "${AWAIT[@]}" && echo
 
 echo "04. Install many, many Homebrew applications"
-# aws-sam-cli irssi mysql-client vim coreutils moreutils rtv todo-txt
+# aws-sam-cli irssi mysql-client vim coreutils moreutils rtv telnet
 brew install git git-flow hub
 brew install reattach-to-user-namespace tmux
-brew install bash jq miller p7zip speedtest-cli telnet 
+brew install bash jq miller p7zip speedtest-cli todo-txt
 brew install awscli python terraform
 brew install go-jira gopass gnupg pinentry-mac
 "${AWAIT[@]}" && echo
 
 echo "05. Install many, many Cask applications"
-brew cask install docker
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install microsoft-teams
-brew cask install onedrive
-brew cask install pycharm-ce
-brew cask install skype-for-business
-brew cask install slack
-brew cask install sourcetree
-brew cask install the-unarchiver
-brew cask install visual-studio-code
+brew install docker
+brew install google-chrome
+brew install iterm2
+# brew install microsoft-teams
+# brew install onedrive
+brew install pycharm-ce
+# brew install skype-for-business
+brew install slack
+# brew install sourcetree
+brew install the-unarchiver
+brew install visual-studio-code
 "${AWAIT[@]}" && echo
 
 echo "06. Install Powerline fonts"
-cd $HOME/Documents/code
+cd $HOME/Documents
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
 ./install.sh
@@ -62,20 +62,15 @@ echo "08. Install PowerLevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 "${AWAIT[@]}" && echo
 
-echo "08. Create necessary directories"
-mkdir ~/Desktop/Screenshots
-mkdir ~/Documents/.logs
-mkdir -p ~/Documents/code/py
-"${AWAIT[@]}" && echo
-
 echo "09. Set up global Git config variables"
 git config --global user.name "Justin Peterson"
-git config --global user.email "justin.peterson@statsperform.com"
+git config --global user.email "jpeterson@extron.com"
 git config --global init.defaultBranch master
 "${AWAIT[@]}" && echo
 
-echo "10. Install vimwiki"
+echo "10. Install vimwiki and its documentation"
 git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
+vim -c 'helptags ~/.vim/pack/plugins/start/vimwiki/doc' -c quit
 "${AWAIT[@]}" && echo
 
 echo "11. Tell MacOS not to create .DS_Store files on network shares"
@@ -87,10 +82,11 @@ defaults write com.apple.screencapture location ~/Desktop/Screenshots
 "${AWAIT[@]}" && echo
 
 echo "13. Symbolic links"
-ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
-ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
-ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
-ln -s $HOME/Documents/.setup/new-mac-starter-kit/dotfiles/.zshrc $HOME/.zshrc
+ln -s $HOME/.config/new-mac-starter-kit/dotfiles/.bash_profile $HOME/.bash_profile
+ln -s $HOME/.config/new-mac-starter-kit/dotfiles/.todo.cfg $HOME/.todo.cfg
+ln -s $HOME/.config/new-mac-starter-kit/dotfiles/.tmux.conf $HOME/.tmux.conf
+ln -s $HOME/.config/new-mac-starter-kit/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/.config/new-mac-starter-kit/dotfiles/.zshrc $HOME/.zshrc
 "${AWAIT[@]}" && echo
 
 echo "14. Reset the Finder so my screenshot command takes effect immediately"
