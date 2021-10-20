@@ -1,13 +1,6 @@
-
-# --- Sourcetree Generated ---
-Host justinmpeterson-Bitbucket
-	HostName bitbucket.org
-	User justinmpeterson
-	PreferredAuthentications publickey
-	IdentityFile /Users/justinpeterson/.ssh/justinmpeterson-Bitbucket
-	UseKeychain yes
-	AddKeysToAgent yes
-# ----------------------------
+Host *
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
 
 Host team
   HostName tilde.team
@@ -15,72 +8,8 @@ Host team
 	PreferredAuthentications publickey
   IdentityFile /Users/justinpeterson/.ssh/tilde.team
 
-Host nexusm
-  HostName 10.208.22.32
-  User root
-	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/github_stats
-
-Host vpteamcity02
-  HostName 10.208.22.60
-  User sports
-  PasswordAuthentication yes
-  PreferredAuthentications password
-
-Host vpteamcity03
-  HostName 10.208.22.68
-  User sports
-  PasswordAuthentication yes
-  PreferredAuthentications password
-
-Host ai-tableau-dev
-  HostName ec2-54-204-16-147.compute-1.amazonaws.com
-  User ec2-user
-	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/tableau2020.pem
-
-Host ai-tableau-prd
-  HostName ec2-34-232-15-57.compute-1.amazonaws.com
-  User ec2-user
-	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/tableau2020.pem
-
-Host jenkins-bastion
-  HostName 18.223.125.154
-  User ec2-user
-	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/jenkins-wordsmith-admin.pem
-
-Host jenkins-agent-docker
-  HostName 10.0.200.42
-  User ec2-user
-	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/jenkins-agent.pem
-  ProxyCommand ssh jenkins-bastion -W %h:%p
-
-Host jenkins-agent-node12
-  HostName 10.0.200.33
-  User ubuntu
-	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/jenkins-agent.pem
-  ProxyCommand ssh jenkins-bastion -W %h:%p
-
-Host jenkins-agent-jerrytest
-  HostName 10.0.200.223
-  User ec2-user
-	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/jenkins-agent.pem
-  ProxyCommand ssh jenkins-bastion -W %h:%p
-
 Host yoda
   HostName yoda.lan
   User justin
 	PreferredAuthentications publickey
   IdentityFile /Users/justinpeterson/.ssh/yoda
-
-# Leave this commented out until you build this box again.
-# Host jmpbox
-#   HostName ec2-3-215-115-29.compute-1.amazonaws.com
-#   User ec2-user
-# 	PreferredAuthentications publickey
-#   IdentityFile /Users/justinpeterson/.ssh/KZONCA-MB17C.pem
