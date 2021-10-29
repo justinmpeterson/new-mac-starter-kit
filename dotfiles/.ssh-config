@@ -6,10 +6,10 @@ Host team
   HostName tilde.team
   User justin
 	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/tilde.team
+  IdentityFile /Users/justinpeterson/.ssh/id_ed25519
 
 Host yoda
   HostName yoda.lan
   User justin
 	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/yoda
+  IdentityFile /Users/justinpeterson/.ssh/id_ed25519

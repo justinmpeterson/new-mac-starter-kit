@@ -122,3 +122,4 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_DISABLE_RPROMPT=true
 export PATH="/Users/justinpeterson/Library/Python/3.9/bin:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"

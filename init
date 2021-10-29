@@ -27,7 +27,7 @@ echo "04. Install many, many Homebrew applications"
 brew install git git-flow hub
 brew install reattach-to-user-namespace tmux
 brew install bash jq miller p7zip speedtest-cli todo-txt
-brew install awscli python terraform
+brew install awscli openjdk python terraform
 brew install go-jira gopass gnupg pinentry-mac
 "${AWAIT[@]}" && echo
 
