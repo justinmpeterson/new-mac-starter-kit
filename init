@@ -63,8 +63,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/the
 "${AWAIT[@]}" && echo
 
 echo "09. Set up global Git config variables"
+git config --global commit.gpgsign true
 git config --global user.name "Justin Peterson"
-git config --global user.email "jpeterson@extron.com"
+git config --global user.email "92394324+justin-extron@users.noreply.github.com"
 git config --global init.defaultBranch master
 "${AWAIT[@]}" && echo
 
@@ -106,5 +107,4 @@ echo "A. Install VirtualBox"
 echo "B. Install Hashicorp's Vagrant"
 echo "C. Install the Oracle Instant Client"
 echo "D. Install the Forticlient VPN client"
-echo "E. Create a GPG key and associate it with your STATS GitHub account."
-echo "   + https://statsinc.atlassian.net/wiki/spaces/DEVOPS/pages/923992191/GPG+keys+-+create+and+configure"
+echo "E. Create a GPG key and associate it with your Extron GitHub account. Then run git config --global user.signingkey (YOUR_KEY_ID_HERE)."
