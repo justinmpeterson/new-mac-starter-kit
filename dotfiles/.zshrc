@@ -112,7 +112,7 @@ autoload -U zmv
 
 alias bfg='java -jar /usr/local/bin/bfg-1.14.0.jar'
 alias bfg2='git reflog expire --expire=now --all && git gc --prune=now --aggressive && git push'
-
+alias brb='caffeinate -u -t 1000'
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"

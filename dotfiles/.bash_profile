@@ -8,6 +8,7 @@
 export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d ~/.todo.cfg -t'
 
+export OD="/Users/jpeterson/OneDrive - Extron Electronics"
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias brb='caffeinate -u -t 1000'
