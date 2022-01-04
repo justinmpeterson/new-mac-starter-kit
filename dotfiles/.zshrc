@@ -121,5 +121,4 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicato
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_DISABLE_RPROMPT=true
-export PATH="/Users/justinpeterson/Library/Python/3.9/bin:$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/opt/openjdk/bin:/Users/jpeterson/Library/Python/3.9/bin:$PATH"
