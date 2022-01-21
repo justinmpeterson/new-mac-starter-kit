@@ -1,0 +1,48 @@
+NETWORK_NAME=coruscant
+WIKIJS_DB_PASS=$(shell pass show Postgresql/Users/wikijs)
+
+backup-postgresql:
+	docker exec postgresql /usr/local/bin/pg_dumpall -U postgres > /var/local/postgresql/backups/backup_`date +%Y%m%d-%H%M`.sql
+build-get-simple-cms:
+	docker build -t yoda/get-simple-cms:1.0.0 -f Dockerfile-getsimplecms .
+build-text-adventures:
+	docker build -t yoda/text-adventures:1.0.0 -f /usr/games/Infocom/Dockerfile /usr/games/Infocom/
+create-network:
+	docker network create ${NETWORK_NAME}
+create-volumes:
+	docker volume create postgresql-data
+start-drupal:
+	docker run --restart unless-stopped -d --network ${NETWORK_NAME} --name drupal --publish 8086:80/tcp drupal:9.1
+start-get-simple-cms:
+	docker run --restart unless-stopped -d --name getsimplecms --network ${NETWORK_NAME} \
+	--mount type=volume,source=getsimplecms-data,target=/var/www/html/get-simple-cms/data \
+	--publish 8084:80/tcp yoda/get-simple-cms:1.0.0
+start-kanboard:
+	docker run --restart unless-stopped -d --name kanboard --network ${NETWORK_NAME} \
+	-e "DATABASE_URL=postgres://SECRETSECRET@postgresql/kanboard" \
+	--mount type=volume,source=kanboard-data,target=/var/www/app/data \
+	--mount type=volume,source=kanboard-plugins,target=/var/www/app/plugins \
+	--publish 8082:80/tcp kanboard/kanboard:v1.2.15
+start-miniflux:
+	docker run --restart unless-stopped -d --name miniflux --network ${NETWORK_NAME} \
+	-e "DATABASE_URL=postgres://miniflux:SECRETSECRET@postgresql/miniflux?sslmode=disable" \
+	-e "RUN_MIGRATIONS=1" -e "CREATE_ADMIN=1" -e "ADMIN_USERNAME=admin" \
+	-e "ADMIN_PASSWORD=admin123" --publish 8083:8080/tcp miniflux/miniflux:2.0.23
+start-nginx:
+	docker run --restart unless-stopped -d --name nginx --network ${NETWORK_NAME} --publish 80:80/tcp nginx:1.19.2
+start-ootp:
+	docker run --restart unless-stopped -d --name ootp --network ${NETWORK_NAME} \
+	--mount type=bind,source=/home/justin/ootp/,target=/usr/local/apache2/htdocs/ootp/ \
+	--publish 8085:80/tcp httpd:2.4-alpine3.15
+start-postgresql:
+	docker run --restart unless-stopped -d --name postgresql --network ${NETWORK_NAME} -e POSTGRES_PASSWORD \
+	--mount type=volume,source=postgresql-data,target=/var/lib/postgresql/data \
+	postgres:12.4-alpine
+start-text-adventures:
+	docker run --restart unless-stopped -d -it --name text-adventures --network ${NETWORK_NAME} yoda/text-adventures:1.0.0
+start-wikijs:
+	docker run --restart unless-stopped -d --name wikijs --network ${NETWORK_NAME} -e "DB_TYPE=postgres" \
+	-e "DB_HOST=postgresql" -e "DB_PORT=5432" -e "DB_USER=wikijs" \
+	-e DB_PASS=${WIKIJS_DB_PASS} -e "DB_NAME=wikijs" \
+	--publish 8081:3000/tcp requarks/wiki:2.4
+
