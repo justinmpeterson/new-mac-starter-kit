@@ -6,10 +6,57 @@ Host team
   HostName tilde.team
   User justin
 	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/id_ed25519
+  IdentityFile /Users/jpeterson/.ssh/id_ed25519
+
+Host sandbox2
+  HostName 10.113.231.14
+  User justin
+  # PreferredAuthentications password
+  IdentitiesOnly yes
+  PreferredAuthentications publickey
+  IdentityFile /Users/jpeterson/.ssh/id_ed25519
+
+Host jenkins-controller
+  HostName rncv-jenkins01
+  User jpeterson
+  PreferredAuthentications password
+  # IdentitiesOnly yes
+  # PreferredAuthentications publickey
+  # IdentityFile /Users/jpeterson/.ssh/id_ed25519
+
+Host erikh
+  HostName rncv-sandbox-centos-erikh02
+  User jpeterson
+	PreferredAuthentications publickey
+  IdentityFile /Users/jpeterson/.ssh/id_ed25519
+
+Host jenkins-staging-controller
+  HostName rncv-jenkins01-staging
+  User jpeterson
+  #	PreferredAuthentications password
+	PreferredAuthentications publickey
+  IdentityFile /Users/jpeterson/.ssh/id_ed25519
+
+Host uslave04
+  HostName rncv-jenkins-uslave04.extron.com
+  User ubuntu
+	PreferredAuthentications password
 
 Host yoda
   HostName yoda.lan
   User justin
 	PreferredAuthentications publickey
-  IdentityFile /Users/justinpeterson/.ssh/id_ed25519
+  IdentityFile /Users/jpeterson/.ssh/id_ed25519
+
+Host vagrant-ubuntu
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/jpeterson/.ssh/id_ed25519
+  IdentityFile /Users/jpeterson/.vagrant.d/insecure_private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+
