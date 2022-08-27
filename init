@@ -39,19 +39,16 @@ brew install irssi python vim
 "${AWAIT[@]}" && echo
 
 echo "06. Install many, many Cask applications"
-brew cask install docker
-# brew cask install filezilla
-brew cask install google-chrome
-brew cask install iterm2
-brew cask install minecraft
-brew cask install pycharm-ce
-brew cask install race-for-the-galaxy
-brew cask install slack
-brew cask install sourcetree
-brew cask install spotify
-brew cask install steam
-brew cask install the-unarchiver
-brew cask install visual-studio-code
+brew install docker
+brew install google-chrome
+brew install iterm2
+brew install pycharm-ce
+brew install slack
+brew install spatterlight
+brew install spotify
+brew install steam
+brew install the-unarchiver
+brew install visual-studio-code
 "${AWAIT[@]}" && echo
 
 echo "07. Install Powerline fonts"
@@ -70,6 +67,7 @@ git config --global user.email "justinmpeterson@gmail.com"
 
 echo "09. Install vimwiki"
 git clone https://github.com/vimwiki/vimwiki.git ~/.vim/pack/plugins/start/vimwiki
+vim -c 'helptags ~/.vim/pack/plugins/start/vimwiki/doc' -c quit
 "${AWAIT[@]}" && echo
 
 echo "10. Tell MacOS not to create .DS_Store files on network shares"
