@@ -1,0 +1,15 @@
+Host nas
+  Hostname kenobi.lan
+  User admin
+
+Host team
+  HostName tilde.team
+  User justin
+    PreferredAuthentications publickey
+  IdentityFile /Users/justin/.ssh/id_rsa
+
+Host yoda
+  HostName yoda.lan
+  User justin
+    PreferredAuthentications publickey
+  IdentityFile /Users/justin/.ssh/id_rsa
