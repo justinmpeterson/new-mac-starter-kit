@@ -105,6 +105,10 @@ echo "17. Set ZSH as my default shell"
 chsh -s /bin/zsh
 "${AWAIT[@]}" && echo
 
+echo "18. Create an SSH key"
+ssh-keygen -q -f $HOME/.ssh/id_ed25519 -t ed25519 -C "2022 M2 MBA" -N ""
+"${AWAIT[@]}" && echo
+
 echo "Automated steps are done! Remaining manual steps may include:"
 echo "A. Download and install Oracle's VirtualBox"
 echo "B. Download and install Hashicorp's Vagrant"
