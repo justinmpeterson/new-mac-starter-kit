@@ -66,7 +66,7 @@ echo "09. Set up global Git config variables"
 git config --global commit.gpgsign true
 git config --global user.name "Justin Peterson"
 git config --global user.email "92394324+justin-extron@users.noreply.github.com"
-git config --global init.defaultBranch master
+git config --global init.defaultBranch main
 "${AWAIT[@]}" && echo
 
 echo "10. Install vimwiki and its documentation"
@@ -100,6 +100,10 @@ chsh -s /bin/zsh
 
 echo "16. Add Homebrew Bash to the list of available shells"
 echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
+"${AWAIT[@]}" && echo
+
+echo "17. Create an SSH key"
+ssh-keygen -q -f $HOME/.ssh/id_ed25519 -t ed25519 -C "jpeterson@extron.com" -N ""
 "${AWAIT[@]}" && echo
 
 echo "All the automatic work is now done! Manual steps remaining include:"
