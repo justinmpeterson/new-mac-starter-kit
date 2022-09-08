@@ -109,6 +109,9 @@ echo "18. Create an SSH key"
 ssh-keygen -q -f $HOME/.ssh/id_ed25519 -t ed25519 -C "2022 M2 MBA" -N ""
 "${AWAIT[@]}" && echo
 
+# When it's time to generate a GPG key, just do it interactively.
+# gpg --full-generate-key
+
 echo "Automated steps are done! Remaining manual steps may include:"
 echo "A. Download and install Oracle's VirtualBox"
 echo "B. Download and install Hashicorp's Vagrant"
