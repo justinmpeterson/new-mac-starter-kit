@@ -112,6 +112,11 @@ ssh-keygen -q -f $HOME/.ssh/id_ed25519 -t ed25519 -C "2022 M2 MBA" -N ""
 # When it's time to generate a GPG key, just do it interactively.
 # gpg --full-generate-key
 
+# To use this new SSH key to login to YODA the Raspberry Pi, you need the
+# password for justin@YODA. Then run this command, and enter the password
+# when prompted.
+# ssh-copy-id -i $HOME/.ssh/id_ed25519 justin@yoda.lan 
+
 echo "Automated steps are done! Remaining manual steps may include:"
 echo "A. Download and install Oracle's VirtualBox"
 echo "B. Download and install Hashicorp's Vagrant"

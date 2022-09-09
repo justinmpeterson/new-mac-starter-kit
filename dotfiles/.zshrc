@@ -1,5 +1,7 @@
 export TERM="xterm-256color"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -103,12 +105,13 @@ source $ZSH/oh-my-zsh.sh
 export TODOTXT_DEFAULT_ACTION=ls
 alias t='todo.sh -d ~/.todo.cfg -t'
 
+export GPG_TTY=$(tty)
 autoload -U zmv
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor; brew cleanup'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
 bindkey -v
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicator)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME='light'
