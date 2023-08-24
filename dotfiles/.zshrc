@@ -65,6 +65,7 @@ plugins=(
   brew
   docker
   git
+  k
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 export OD="/Users/jpeterson/OneDrive - Extron Electronics"
 export GPG_TTY=$(tty)
 export WTF_JIRA_API_KEY=""
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 bindkey -v
 
@@ -113,7 +115,8 @@ autoload -U zmv
 alias bfg='java -jar /usr/local/bin/bfg-1.14.0.jar'
 alias bfg2='git reflog expire --expire=now --all && git gc --prune=now --aggressive && git push'
 alias brb='caffeinate -u -t 1000'
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+alias brewup='sudo chown -R $(whoami) /usr/local/bin; chmod u+w /usr/local/bin; brew update; brew upgrade; brew cleanup'
+alias exc='open -a "Microsoft Excel"'
 alias ll='ls -FGlAhp'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
 

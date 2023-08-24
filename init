@@ -24,7 +24,7 @@ sudo chown -R $(whoami) $(brew --prefix)/*
 
 echo "04. Install many, many Homebrew applications"
 # aws-sam-cli irssi mysql-client vim coreutils moreutils rtv telnet
-brew install git git-flow hub
+brew install coreutils git git-flow hub
 brew install reattach-to-user-namespace tmux
 brew install bash jq miller p7zip speedtest-cli todo-txt
 brew install awscli openjdk python terraform
@@ -32,7 +32,7 @@ brew install go-jira gopass gnupg pinentry-mac
 "${AWAIT[@]}" && echo
 
 echo "05. Install many, many Cask applications"
-brew install docker
+# brew install docker
 brew install google-chrome
 brew install iterm2
 # brew install microsoft-teams
@@ -58,8 +58,9 @@ echo "07. Install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 "${AWAIT[@]}" && echo
 
-echo "08. Install PowerLevel10k"
+echo "08. Install ZSH custom plugins"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
 "${AWAIT[@]}" && echo
 
 echo "09. Set up global Git config variables"
