@@ -16,13 +16,20 @@ Host sandbox2
   PreferredAuthentications publickey
   IdentityFile /Users/jpeterson/.ssh/id_ed25519
 
+Host ghdash
+  HostName rncv-github-dashboard
+  User ubuntu
+  IdentitiesOnly yes
+  PreferredAuthentications publickey
+  IdentityFile /Users/jpeterson/.ssh/id_ed25519
+
 Host jenkins-controller
   HostName rncv-jenkins01
-  User jpeterson
+  User jenkins
   PreferredAuthentications password
-  # IdentitiesOnly yes
-  # PreferredAuthentications publickey
-  # IdentityFile /Users/jpeterson/.ssh/id_ed25519
+  #IdentitiesOnly yes
+  #PreferredAuthentications publickey
+  #IdentityFile /Users/jpeterson/.ssh/id_ed25519
 
 Host erikh
   HostName rncv-sandbox-centos-erikh02
@@ -42,11 +49,16 @@ Host uslave04
   User ubuntu
 	PreferredAuthentications password
 
-Host yoda
-  HostName yoda.lan
+Host kurosawa
+  HostName kurosawa.local
   User justin
 	PreferredAuthentications publickey
   IdentityFile /Users/jpeterson/.ssh/id_ed25519
+
+Host nas
+  HostName kenobi.lan
+  User justin_a
+	PreferredAuthentications password
 
 Host vagrant-ubuntu
   HostName 127.0.0.1

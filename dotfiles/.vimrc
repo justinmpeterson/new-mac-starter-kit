@@ -30,11 +30,17 @@ syntax on
 set foldmethod=indent
 set foldlevel=99
 
-let vimwiki_default = {}
-let vimwiki_default.path = "$OD/Documents/vimwiki/md"
-let vimwiki_default.path_html = "$OD/Documents/vimwiki/html"
-let vimwiki_default.syntax = "markdown"
-let vimwiki_default.ext = ".md"
-let vimwiki_default.name = "Extron Wiki"
+let vimwiki_justin = {}
+let vimwiki_justin.path = "~/Documents/workspace/vimwiki-justin-personal"
+let vimwiki_justin.syntax = "markdown"
+let vimwiki_justin.ext = ".md"
+let vimwiki_justin.name = "Justin Personal Wiki"
 
-let g:vimwiki_list =[vimwiki_default]
+let vimwiki_extron = {}
+let vimwiki_extron.path = "$OD/Documents/vimwiki/md"
+let vimwiki_extron.path_html = "$OD/Documents/vimwiki/html"
+let vimwiki_extron.syntax = "markdown"
+let vimwiki_extron.ext = ".md"
+let vimwiki_extron.name = "Extron Wiki"
+
+let g:vimwiki_list = [vimwiki_justin, vimwiki_extron]

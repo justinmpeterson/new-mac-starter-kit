@@ -118,6 +118,7 @@ alias brb='caffeinate -u -t 1000'
 alias brewup='sudo chown -R $(whoami) /usr/local/bin; chmod u+w /usr/local/bin; brew update; brew upgrade; brew cleanup'
 alias exc='open -a "Microsoft Excel"'
 alias ll='ls -FGlAhp'
+alias kk='k -h --group-directories-first'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicator)
@@ -125,3 +126,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_COLOR_SCHEME='light'
 POWERLEVEL9K_DISABLE_RPROMPT=true
 export PATH="/usr/local/sbin:/usr/local/opt/openjdk/bin:/Users/jpeterson/Library/Python/3.9/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
