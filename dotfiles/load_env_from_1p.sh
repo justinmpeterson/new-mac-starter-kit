@@ -13,7 +13,7 @@ GH_TOKEN_1P=$(op read op://Employee/github-pat/credential)
 export GH_TOKEN="${GH_TOKEN_1P}"
 GH_USER_1P=$(op read op://Employee/github-pat/username)
 export GH_USERNAME="${GH_USER_1P}"
-GH_ORG_1P=$(op read op://Employee/github-pat/workspace)
+GH_ORG_1P=$(op read op://Employee/github-pat/organization)
 export GH_ORG="${GH_ORG_1P}"
 
 ARTIFACTORY_TOKEN_1P=$(op read op://Employee/cloud-artifactory-identity-token/credential)
