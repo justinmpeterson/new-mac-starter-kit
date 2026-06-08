@@ -23,6 +23,11 @@ Host ghdash
   PreferredAuthentications publickey
   IdentityFile /Users/jpeterson/.ssh/id_ed25519
 
+Host rncv-ansible04
+  HostName rncv-ansible04
+  User ubuntu
+  PreferredAuthentications password
+
 Host jenkins-controller
   HostName rncv-jenkins01
   User jenkins

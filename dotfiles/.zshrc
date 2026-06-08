@@ -120,6 +120,7 @@ alias exc='open -a "Microsoft Excel"'
 alias ll='ls -FGlAhp'
 alias kk='k -h --group-directories-first'
 alias reload="source ~/.zshrc && echo ~/.zshrc has been reloaded"
+alias vpn='/opt/cisco/secureclient/bin/vpn'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(history time virtualenv dir vcs root_indicator)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
